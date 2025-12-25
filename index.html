@@ -23,7 +23,7 @@
     .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
 
     /* HEADER */
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 100px; animation: slideDown 1s ease forwards; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; animation: slideDown 1s ease forwards; }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
     .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 1px; color: var(--accent); }
     nav a { margin-left: 28px; font-size: 0.95rem; color: var(--muted); position: relative; cursor: pointer; }
@@ -31,7 +31,7 @@
     nav a:hover::after { width: 100%; }
 
     /* HERO */
-    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; margin-bottom: 220px; }
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; margin-bottom: 200px; }
     .hero h1 { font-size: 3.2rem; line-height: 1.2; margin-bottom: 20px; animation: fadeLeft 1.2s ease forwards; }
     .hero p { color: var(--muted); max-width: 520px; margin-bottom: 32px; animation: fadeLeft 1.4s ease forwards; }
     @keyframes fadeLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
@@ -48,7 +48,7 @@
 
     /* SECTIONS */
     section { 
-      margin-bottom: 300px; 
+      margin-bottom: 180px; /* المسافة المثالية بين الأقسام */
       opacity: 0; 
       transform: translateY(60px); 
       transition: all 0.8s ease; 
@@ -67,7 +67,7 @@
       border-top: 1px solid #1f2937;
       text-align: center;
       color: var(--muted);
-      margin-top: 250px; 
+      margin-top: 180px; /* المسافة المثالية بين المهارات والفوتر */
       transition: all 0.8s ease;
     }
     footer span { transition: color 0.3s ease; }
@@ -76,8 +76,8 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; margin-bottom: 180px; }
       header { flex-direction: column; gap: 25px; }
-      section { margin-bottom: 220px; }
-      footer { margin-top: 200px; }
+      section { margin-bottom: 140px; }
+      footer { margin-top: 140px; }
     }
   </style>
 </head>
@@ -150,16 +150,14 @@
 
   <!-- JS -->
   <script>
-    // Smooth scroll with vertical centering
     function scrollToSection(e, id) {
       e.preventDefault();
       const section = document.getElementById(id);
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const offset = window.innerHeight / 2 - section.offsetHeight / 2; // center vertically
+      const offset = window.innerHeight / 2 - section.offsetHeight / 2;
       window.scrollTo({ top: sectionTop - offset, behavior: 'smooth' });
     }
 
-    // Fade-in sections on scroll
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
