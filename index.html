@@ -45,7 +45,12 @@
     @keyframes pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
     /* SECTIONS */
-    section { margin-bottom: 120px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+    section { 
+      margin-bottom: 180px; /* Increased spacing between sections */
+      opacity: 0; 
+      transform: translateY(40px); 
+      transition: all 0.8s ease; 
+    }
     section.visible { opacity: 1; transform: translateY(0); }
     .section-title { font-size: 2rem; margin-bottom: 16px; }
     .section-desc { color: var(--muted); max-width: 600px; margin-bottom: 48px; }
@@ -53,11 +58,20 @@
     .card { background: var(--card); padding: 28px; border-radius: 16px; border: 1px solid #1f2937; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
 
-    footer { padding: 40px 20px; border-top: 1px solid #1f2937; text-align: center; color: var(--muted); }
+    /* FOOTER */
+    footer {
+      padding: 40px 20px;
+      border-top: 1px solid #1f2937;
+      text-align: center;
+      color: var(--muted);
+      margin-top: 100px; /* Space before footer */
+    }
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       header { flex-direction: column; gap: 20px; }
+      section { margin-bottom: 140px; } /* smaller margin on mobile */
+      footer { margin-top: 80px; }
     }
   </style>
 </head>
@@ -99,7 +113,7 @@
     <!-- Skills -->
     <section id="skills">
       <h2 class="section-title">Skills</h2>
-      <p class="section-desc">My main skills : </p>
+      <p class="section-desc">My main skills :</p>
       <div class="grid">
         <div class="card">
           <h4>Graphic Designer</h4>
