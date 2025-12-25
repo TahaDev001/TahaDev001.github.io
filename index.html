@@ -48,12 +48,16 @@
 
     /* SECTIONS */
     section { 
-      margin-bottom: 180px; /* المسافة المثالية بين الأقسام */
+      margin-bottom: 180px; 
       opacity: 0; 
       transform: translateY(60px); 
       transition: all 0.8s ease; 
     }
+    /* خاص بالمسافة بين About و Skills فقط */
+    #about { margin-bottom: 220px; }
+    
     section.visible { opacity: 1; transform: translateY(0); }
+
     .section-title { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); position: relative; }
     .section-title::after { content:""; position:absolute; left:0; bottom:-6px; width:50px; height:3px; background:var(--accent-2); border-radius:3px; }
     .section-desc { color: var(--muted); max-width: 650px; margin-bottom: 50px; font-size:1rem; }
@@ -67,7 +71,7 @@
       border-top: 1px solid #1f2937;
       text-align: center;
       color: var(--muted);
-      margin-top: 180px; /* المسافة المثالية بين المهارات والفوتر */
+      margin-top: 180px; 
       transition: all 0.8s ease;
     }
     footer span { transition: color 0.3s ease; }
@@ -77,6 +81,7 @@
       .hero { grid-template-columns: 1fr; margin-bottom: 180px; }
       header { flex-direction: column; gap: 25px; }
       section { margin-bottom: 140px; }
+      #about { margin-bottom: 180px; } /* تقليل المسافة قليلاً للشاشات الصغيرة */
       footer { margin-top: 140px; }
     }
   </style>
@@ -158,6 +163,7 @@
       window.scrollTo({ top: sectionTop - offset, behavior: 'smooth' });
     }
 
+    // Animation عند التمرير
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -167,8 +173,8 @@
       });
     }, { threshold: 0.2 });
 
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
+    document.querySelectorAll('section, .hero-card, .card').forEach(el => {
+      observer.observe(el);
     });
   </script>
 
